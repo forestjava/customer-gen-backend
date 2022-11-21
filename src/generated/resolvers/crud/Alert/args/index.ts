@@ -1,0 +1,12 @@
+export { AggregateAlertArgs } from "./AggregateAlertArgs";
+export { CreateManyAlertArgs } from "./CreateManyAlertArgs";
+export { CreateOneAlertArgs } from "./CreateOneAlertArgs";
+export { DeleteManyAlertArgs } from "./DeleteManyAlertArgs";
+export { DeleteOneAlertArgs } from "./DeleteOneAlertArgs";
+export { FindFirstAlertArgs } from "./FindFirstAlertArgs";
+export { FindManyAlertArgs } from "./FindManyAlertArgs";
+export { FindUniqueAlertArgs } from "./FindUniqueAlertArgs";
+export { GroupByAlertArgs } from "./GroupByAlertArgs";
+export { UpdateManyAlertArgs } from "./UpdateManyAlertArgs";
+export { UpdateOneAlertArgs } from "./UpdateOneAlertArgs";
+export { UpsertOneAlertArgs } from "./UpsertOneAlertArgs";

@@ -1,0 +1,12 @@
+export { AggregateDeviceArgs } from "./AggregateDeviceArgs";
+export { CreateManyDeviceArgs } from "./CreateManyDeviceArgs";
+export { CreateOneDeviceArgs } from "./CreateOneDeviceArgs";
+export { DeleteManyDeviceArgs } from "./DeleteManyDeviceArgs";
+export { DeleteOneDeviceArgs } from "./DeleteOneDeviceArgs";
+export { FindFirstDeviceArgs } from "./FindFirstDeviceArgs";
+export { FindManyDeviceArgs } from "./FindManyDeviceArgs";
+export { FindUniqueDeviceArgs } from "./FindUniqueDeviceArgs";
+export { GroupByDeviceArgs } from "./GroupByDeviceArgs";
+export { UpdateManyDeviceArgs } from "./UpdateManyDeviceArgs";
+export { UpdateOneDeviceArgs } from "./UpdateOneDeviceArgs";
+export { UpsertOneDeviceArgs } from "./UpsertOneDeviceArgs";

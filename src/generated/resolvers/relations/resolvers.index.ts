@@ -1,0 +1,14 @@
+export { AlertRelationsResolver } from "./Alert/AlertRelationsResolver";
+export { CompanyRelationsResolver } from "./Company/CompanyRelationsResolver";
+export { DeviceRelationsResolver } from "./Device/DeviceRelationsResolver";
+export { DeviceTypeRelationsResolver } from "./DeviceType/DeviceTypeRelationsResolver";
+export { EventRelationsResolver } from "./Event/EventRelationsResolver";
+export { FormationRelationsResolver } from "./Formation/FormationRelationsResolver";
+export { PriorityRelationsResolver } from "./Priority/PriorityRelationsResolver";
+export { RegionRelationsResolver } from "./Region/RegionRelationsResolver";
+export { SmartPoleRelationsResolver } from "./SmartPole/SmartPoleRelationsResolver";
+export { SolutionRelationsResolver } from "./Solution/SolutionRelationsResolver";
+export { UserRelationsResolver } from "./User/UserRelationsResolver";
+export { UserGroupRelationsResolver } from "./UserGroup/UserGroupRelationsResolver";
+export { UserRoleRelationsResolver } from "./UserRole/UserRoleRelationsResolver";
+export { ZoneRelationsResolver } from "./Zone/ZoneRelationsResolver";

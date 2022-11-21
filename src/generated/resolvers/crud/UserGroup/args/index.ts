@@ -1,0 +1,12 @@
+export { AggregateUserGroupArgs } from "./AggregateUserGroupArgs";
+export { CreateManyUserGroupArgs } from "./CreateManyUserGroupArgs";
+export { CreateOneUserGroupArgs } from "./CreateOneUserGroupArgs";
+export { DeleteManyUserGroupArgs } from "./DeleteManyUserGroupArgs";
+export { DeleteOneUserGroupArgs } from "./DeleteOneUserGroupArgs";
+export { FindFirstUserGroupArgs } from "./FindFirstUserGroupArgs";
+export { FindManyUserGroupArgs } from "./FindManyUserGroupArgs";
+export { FindUniqueUserGroupArgs } from "./FindUniqueUserGroupArgs";
+export { GroupByUserGroupArgs } from "./GroupByUserGroupArgs";
+export { UpdateManyUserGroupArgs } from "./UpdateManyUserGroupArgs";
+export { UpdateOneUserGroupArgs } from "./UpdateOneUserGroupArgs";
+export { UpsertOneUserGroupArgs } from "./UpsertOneUserGroupArgs";

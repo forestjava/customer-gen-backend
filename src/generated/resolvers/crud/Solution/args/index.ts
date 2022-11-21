@@ -1,0 +1,12 @@
+export { AggregateSolutionArgs } from "./AggregateSolutionArgs";
+export { CreateManySolutionArgs } from "./CreateManySolutionArgs";
+export { CreateOneSolutionArgs } from "./CreateOneSolutionArgs";
+export { DeleteManySolutionArgs } from "./DeleteManySolutionArgs";
+export { DeleteOneSolutionArgs } from "./DeleteOneSolutionArgs";
+export { FindFirstSolutionArgs } from "./FindFirstSolutionArgs";
+export { FindManySolutionArgs } from "./FindManySolutionArgs";
+export { FindUniqueSolutionArgs } from "./FindUniqueSolutionArgs";
+export { GroupBySolutionArgs } from "./GroupBySolutionArgs";
+export { UpdateManySolutionArgs } from "./UpdateManySolutionArgs";
+export { UpdateOneSolutionArgs } from "./UpdateOneSolutionArgs";
+export { UpsertOneSolutionArgs } from "./UpsertOneSolutionArgs";

@@ -1,0 +1,244 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator typegraphql {
+  provider = "typegraphql-prisma"
+  output = "../src/generated"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+
+model User {
+  
+  id  Int  @id @default(autoincrement())  
+  
+  lastName  String?    
+  
+  firstName  String?    
+  
+  email  String?    
+  
+  roleId  Int?    
+  
+  role  UserRole?  @relation("3b6e5a47-eb00-43cb-84bb-6f2ee661b472", fields: [roleId], references: [id])  
+  
+  groups  UserGroup[]  @relation("44448284-3fdf-4810-a924-e77a0f6bedb9")  
+  
+  username  String?    
+  
+  avatar  String?    
+  
+  phone  String?    
+  
+  jobTitle  String?    
+  
+}
+
+model UserRole {
+  
+  id  Int  @id @default(autoincrement())  
+  
+  users  User[]  @relation("3b6e5a47-eb00-43cb-84bb-6f2ee661b472")  
+  
+  name  String?    
+  
+}
+
+model UserGroup {
+  
+  id  Int  @id @default(autoincrement())  
+  
+  users  User[]  @relation("44448284-3fdf-4810-a924-e77a0f6bedb9")  
+  
+  name  String?    
+  
+  description  String?    
+  
+  color  String?    
+  
+}
+
+model Company {
+  
+  id  Int  @id @default(autoincrement())  
+  
+  name  String?    
+  
+  icon  String?    
+  
+  logo  String?    
+  
+  regions  Region[]  @relation("5a753189-8833-4d64-bc55-2b203b66076b")  
+  
+}
+
+model Region {
+  
+  id  Int  @id @default(autoincrement())  
+  
+  name  String?    
+  
+  formations  Formation[]  @relation("22fc3561-d1ff-4f25-ba2f-6c9977b85132")  
+  
+  companyId  Int?    
+  
+  company  Company?  @relation("5a753189-8833-4d64-bc55-2b203b66076b", fields: [companyId], references: [id])  
+  
+}
+
+model Solution {
+  
+  id  Int  @id @default(autoincrement())  
+  
+  name  String?    
+  
+  formations  Formation[]  @relation("819840f6-6bd5-4722-adef-e6409de0b105")  
+  
+}
+
+model Formation {
+  
+  id  Int  @id @default(autoincrement())  
+  
+  name  String?    
+  
+  address  String?    
+  
+  solutions  Solution[]  @relation("819840f6-6bd5-4722-adef-e6409de0b105")  
+  
+  zones  Zone[]  @relation("0cd02c43-e505-4713-bbd5-5816d9cd0c1a")  
+  
+  regionId  Int?    
+  
+  region  Region?  @relation("22fc3561-d1ff-4f25-ba2f-6c9977b85132", fields: [regionId], references: [id])  
+  
+}
+
+model Zone {
+  
+  id  Int  @id @default(autoincrement())  
+  
+  name  String?    
+  
+  formationId  Int?    
+  
+  formation  Formation?  @relation("0cd02c43-e505-4713-bbd5-5816d9cd0c1a", fields: [formationId], references: [id])  
+  
+  smartPoles  SmartPole[]  @relation("b2f9edb1-7510-463d-9e5f-b16e360743fa")  
+  
+}
+
+model Device {
+  
+  id  Int  @id @default(autoincrement())  
+  
+  name  String?    
+  
+  serial  String?    
+  
+  uuid  String?    
+  
+  typeId  Int?    
+  
+  type  DeviceType?  @relation("dd252ebe-4aa1-4cce-ad49-e82da0ae63f9", fields: [typeId], references: [id])  
+  
+  connectParamIndex  String?    
+  
+  alerts  Alert[]  @relation("3a21a8ff-a36c-4390-a482-f9078250081c")  
+  
+  events  Event[]  @relation("270cfc60-ceef-4de1-b65c-7117273021c6")  
+  
+  smartPoleId  Int?    
+  
+  smartPole  SmartPole?  @relation("24db99c2-3fd9-4928-b037-2103d14e7e9e", fields: [smartPoleId], references: [id])  
+  
+}
+
+model DeviceType {
+  
+  id  Int  @id @default(autoincrement())  
+  
+  name  String?    
+  
+  devices  Device[]  @relation("dd252ebe-4aa1-4cce-ad49-e82da0ae63f9")  
+  
+}
+
+model Alert {
+  
+  id  Int  @id @default(autoincrement())  
+  
+  priorityId  Int?    
+  
+  priority  Priority?  @relation("1d5c536b-6ba7-4a41-970b-34ed5d1e44c6", fields: [priorityId], references: [id])  
+  
+  deviceId  Int?    
+  
+  device  Device?  @relation("3a21a8ff-a36c-4390-a482-f9078250081c", fields: [deviceId], references: [id])  
+  
+  message  String?    
+  
+}
+
+model Priority {
+  
+  id  Int  @id @default(autoincrement())  
+  
+  name  String?    
+  
+  alerts  Alert[]  @relation("1d5c536b-6ba7-4a41-970b-34ed5d1e44c6")  
+  
+  events  Event[]  @relation("a6bcad97-ac6b-4842-bc07-9120dac01e0e")  
+  
+}
+
+model Event {
+  
+  id  Int  @id @default(autoincrement())  
+  
+  priorityId  Int?    
+  
+  priority  Priority?  @relation("a6bcad97-ac6b-4842-bc07-9120dac01e0e", fields: [priorityId], references: [id])  
+  
+  moment  DateTime?    
+  
+  message  String?    
+  
+  deviceId  Int?    
+  
+  device  Device?  @relation("270cfc60-ceef-4de1-b65c-7117273021c6", fields: [deviceId], references: [id])  
+  
+}
+
+model SmartPole {
+  
+  id  Int  @id @default(autoincrement())  
+  
+  connectLocationId  Float?    
+  
+  connectDeviceId  String?    
+  
+  name  String?    
+  
+  serial  String?    
+  
+  latitude  Float?    
+  
+  longitude  Float?    
+  
+  zoneId  Int?    
+  
+  zone  Zone?  @relation("b2f9edb1-7510-463d-9e5f-b16e360743fa", fields: [zoneId], references: [id])  
+  
+  devices  Device[]  @relation("24db99c2-3fd9-4928-b037-2103d14e7e9e")  
+  
+}
